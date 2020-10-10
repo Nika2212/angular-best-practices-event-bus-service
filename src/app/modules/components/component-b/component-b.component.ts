@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventBusService } from '../../../core/services/event-bus.service';
+import { Events } from '../../../core/enums/events';
 
 @Component({
   selector: 'app-component-b',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component-b.component.css']
 })
 export class ComponentBComponent implements OnInit {
-  constructor() { }
+  constructor(
+    private eventBusService: EventBusService
+  ) { }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.eventBusService.on(Events.ON_A_COMPONENT_INIT, (payload) => {
+      console.log(payload);
+    });
+  }
 }
