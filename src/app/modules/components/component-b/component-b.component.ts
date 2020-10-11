@@ -13,7 +13,7 @@ export class ComponentBComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.eventBusService.on(Events.ON_A_COMPONENT_INIT, (payload) => {
+    this.eventBusService.on<string>(Events.ON_A_COMPONENT_INIT, (payload) => {
       console.log(payload);
     });
   }

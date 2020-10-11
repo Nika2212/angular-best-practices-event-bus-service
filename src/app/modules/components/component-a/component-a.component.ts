@@ -16,6 +16,6 @@ export class ComponentAComponent implements OnInit, AfterViewInit {
   public ngOnInit(): void {}
 
   public ngAfterViewInit(): void {
-    this.eventBusService.emit(new EmitEvent(Events.ON_A_COMPONENT_INIT, 'Some Data'));
+    this.eventBusService.emit<string>(new EmitEvent(Events.ON_A_COMPONENT_INIT, 'Some Data'));
   }
 }
